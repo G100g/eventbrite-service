@@ -1,0 +1,23 @@
+{
+  "name": "eventbrite-service",
+  "version": "1.0.0",
+  "description": "Expose some data from Eventbrite API",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "dev": "nodemon --exec 'npm start'"
+  },
+  "repository": "https://github.com/G100g/eventbrite-service.git",
+  "author": "Giorgio Aquino <me@g100g.net>",
+  "license": "MIT",
+  "dependencies": {
+    "micro": "^7.3.1",
+    "nbrite": "^0.2.0"
+  },
+  "env": {
+    "EB_TOKEN": "@eb-token"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
