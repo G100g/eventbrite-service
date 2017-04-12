@@ -1,5 +1,4 @@
 const { send } = require('micro');
-const cors = require('micro-cors');
 var Nbrite = require('nbrite');
 
 function getToken() {
