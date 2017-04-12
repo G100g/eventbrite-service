@@ -26,6 +26,7 @@ function eventbrite() {
 const handler = async (req, res) => {
     const events = await eventbrite();
     res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
     send(res, 200, events);
 };
 
