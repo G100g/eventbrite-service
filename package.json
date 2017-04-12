@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "micro",
-    "dev": "nodemon --exec 'npm start'"
+    "dev": "nodemon --exec \"npm start\""
   },
   "repository": "https://github.com/G100g/eventbrite-service.git",
   "author": "Giorgio Aquino <me@g100g.net>",
