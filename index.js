@@ -3,6 +3,10 @@ const Nbrite = require('nbrite');
 
 const url = require('url') ;
 
+const CacheManager = require('./libs/cacheManager');
+
+CacheManager.timeout(60 * 1000);
+
 const EVENTBRITE_ACCESS_TOKEN = getToken();
 const nbrite = new Nbrite({token: EVENTBRITE_ACCESS_TOKEN });
 
@@ -28,13 +32,16 @@ function reducePayload(items, event) {
 }
 
 function events() {
-  return nbrite.get('/users/me/owned_events', { status: 'live' }).then(function (res) {
-      if (res.events) {
-        return res.events.reduce(reducePayload, []);
-      }
 
-      return {};
-  });
+    return CacheManager.update('events', nbrite.get('/users/me/owned_events', { status: 'live' }).then(function (res) {
+                                                if (res.events) {
+                                                    return res.events.reduce(reducePayload, []);
+                                                }
+
+                                                return {};
+                                            })
+                                        );
+
 }
 
 function attendees(id) {
@@ -62,6 +69,7 @@ const handler = async (req, res) => {
 
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.setHeader('last-cache-update', CacheManager.lastUpdate)
     send(res, 200, response);
 };
 

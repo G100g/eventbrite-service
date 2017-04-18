@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "micro",
-    "dev": "nodemon --exec \"npm start\""
+    "dev": "nodemon --exec \"npm start\"",
+    "test": "mocha ./__tests__",
+    "test-watch": "nodemon --exec \"yarn run test\""
   },
   "repository": "https://github.com/G100g/eventbrite-service.git",
   "author": "Giorgio Aquino <me@g100g.net>",
@@ -18,6 +20,8 @@
     "EB_TOKEN": "@eb-token"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   }
 }
