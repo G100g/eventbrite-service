@@ -70,6 +70,8 @@ const handler = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.setHeader('last-cache-update', CacheManager.lastUpdate)
+    res.setHeader('cache-duration-ms', CacheManager.timeoutMilliseconds)
+    
     send(res, 200, response);
 };
 
