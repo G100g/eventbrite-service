@@ -7,7 +7,8 @@
     "start": "micro",
     "dev": "nodemon --exec \"npm start\"",
     "test": "mocha ./__tests__",
-    "test-watch": "nodemon --exec \"yarn run test\""
+    "test-watch": "nodemon --exec \"yarn run test\"",
+    "deploy" : "now -e EB_TOKEN=@eb-token"
   },
   "repository": "https://github.com/G100g/eventbrite-service.git",
   "author": "Giorgio Aquino <me@g100g.net>",
