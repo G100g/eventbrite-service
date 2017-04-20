@@ -5,7 +5,7 @@ const url = require('url') ;
 
 const CacheManager = require('./libs/cacheManager');
 
-CacheManager.timeout(60 * 1000);
+CacheManager.timeout(4 * 60 * 60 * 1000);
 
 const EVENTBRITE_ACCESS_TOKEN = getToken();
 const nbrite = new Nbrite({token: EVENTBRITE_ACCESS_TOKEN });
